@@ -6,7 +6,7 @@ import { ProdutoRepository } from './repositories/produto.mongo';
 export class ProdutoService {
   constructor(private readonly produtoRepo: ProdutoRepository) {}
 
-  async searchBySku(codigoProduto: string) {
+  async searchBySku(codigoProduto: number) {
     // this.pegandoIdMongo(id);
     return await this.produtoRepo.findAtMongo(codigoProduto);
   }
@@ -19,11 +19,11 @@ export class ProdutoService {
     return await this.produtoRepo.create(createDB);
   }
 
-  async delete(codigoProduto: string) {
+  async delete(codigoProduto: number) {
     return await this.produtoRepo.delete(codigoProduto);
   }
 
-  async update(codigoProduto: string, produto: any) {
+  async update(codigoProduto: number, produto: any) {
     return await this.produtoRepo.update(codigoProduto, produto);
   }
 

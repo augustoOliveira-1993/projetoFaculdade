@@ -2,12 +2,10 @@ import { Schema } from 'mongoose';
 
 const RestauranteSchema = new Schema(
   {
-    numeroPedido: { type: String },
-    numeroMesa: { type: String },
-    valorPedido: { type: String },
-    horarioInical: { type: Date },
-    horarioMedio: { type: String },
-    cpf: { type: String },
+    cnpj: { type: String },
+    nomeFantasia: { type: String },
+    endereco: { type: String },
+    telefone: { type: String },
   },
   {
     timestamps: {

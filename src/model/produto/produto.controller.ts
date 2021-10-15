@@ -26,22 +26,22 @@ export class ProdutoController {
 
   @Get(':codigoDoProduto')
   async buscarPorId(
-    @Param('codigoProduto') codigoProduto: string,
+    @Param('codigoProduto') codigoProduto: number,
   ): Promise<Produto> {
     return this.produtoService.searchBySku(codigoProduto);
   }
 
-  @Put(':id')
+  @Put(':codigoProduto')
   async atualizar(
-    @Param('codigoProduto') id: string,
+    @Param('codigoProduto') codigoProduto: number,
     @Body() produto: Produto,
   ): Promise<Produto> {
-    return this.produtoService.update(id, produto);
+    return this.produtoService.update(codigoProduto, produto);
   }
 
   @Delete(':codigoProduto')
   async remover(
-    @Param('codigoProduto') codigoProduto: string,
+    @Param('codigoProduto') codigoProduto: number,
   ): Promise<Produto> {
     return this.produtoService.delete(codigoProduto);
   }

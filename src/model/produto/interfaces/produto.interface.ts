@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface Produto extends Document {
-  readonly codigoProduto: string;
+  readonly codigoProduto: number;
   readonly nome: string;
   readonly descricao: string;
   readonly informacaoNutricional: string;

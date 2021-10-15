@@ -2,7 +2,7 @@ import { Schema } from 'mongoose';
 
 const ProdutoSchema = new Schema(
   {
-    codigoProduto: { type: String },
+    codigoProduto: { type: Number },
     nome: { type: String },
     descricao: { type: String },
     preco: { type: Number },

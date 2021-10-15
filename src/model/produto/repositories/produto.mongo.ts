@@ -13,26 +13,24 @@ export class ProdutoRepository {
     return this.produtoModel.find().exec();
   }
 
-  // async buscarPorSku(sku: string): Promise<Produto> {
-  //   return await this.produtoModel.findOne({ sku }).exec();
-  // }
-
   async create(createDB: any): Promise<Produto> {
     const createdUser = new this.produtoModel(createDB);
     return createdUser.save();
   }
 
-  async findAtMongo(codigoProduto: string): Promise<Produto> {
+  async findAtMongo(codigoProduto: number): Promise<Produto> {
     return await this.produtoModel.findOne({ codigoProduto }).exec();
   }
 
-  async delete(codigoDoProduto: string): Promise<Produto> {
-    return await this.produtoModel.findByIdAndRemove({ codigoDoProduto });
+  async delete(codigoProduto: number): Promise<Produto> {
+    return await this.produtoModel.findOneAndDelete({ codigoProduto });
   }
 
-  async update(codigoDoProduto: string, produto: any): Promise<Produto> {
-    return await this.produtoModel.findByIdAndUpdate(codigoDoProduto, produto, {
-      new: true,
-    });
+  async update(codigoProduto: number, produto: any): Promise<Produto> {
+    return await this.produtoModel.findOneAndUpdate(
+      { codigoProduto: codigoProduto },
+      produto,
+      { new: true },
+    );
   }
 }

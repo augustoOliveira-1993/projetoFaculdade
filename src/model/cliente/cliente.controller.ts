@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ClienteService } from './cliente.service';
 import { Cliente } from './interfaces/cliente.interfaces';
 
@@ -23,16 +31,16 @@ export class ClienteController {
   //   return this.produtoService.searchBySku(codigoDoProduto);
   // }
 
-  // @Put(':id')
-  // async atualizar(
-  //   @Param('id') id: string,
-  //   @Body() gatoAtualizado: Gato,
-  // ): Promise<Gato> {
-  //   return this.gatosService.atualizar(id, gatoAtualizado);
-  // }
+  @Put(':cpf')
+  async atualizar(
+    @Param('cpf') cpf: string,
+    @Body() cliente: Cliente,
+  ): Promise<Cliente> {
+    return this.clienteService.update(cpf, cliente);
+  }
 
-  // @Delete(':id')
-  // async remover(@Param('id') id: string): Promise<Gato> {
-  //   return this.gatosService.remover(id);
-  // }
+  @Delete(':cpf')
+  async remover(@Param('cpf') cpf: string): Promise<Cliente> {
+    return this.clienteService.delete(cpf);
+  }
 }

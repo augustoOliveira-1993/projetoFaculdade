@@ -12,17 +12,16 @@ export class ClienteService {
   async create(createDB: any) {
     return await this.clienteRepo.create(createDB);
   }
-  // //
-  // async delete(id: string) {
-  //   return await this.clienteRepo.delete(id);
-  // }
+  async delete(cpf: string) {
+    return await this.clienteRepo.delete(cpf);
+  }
 
-  // async update(id: string, produto: any) {
-  //   return await this.clienteRepo.update(id, produto);
-  // }
+  async update(cpf: string, cliente: any) {
+    return await this.clienteRepo.update(cpf, cliente);
+  }
 
-  // async pegandoIdMongo(id: string) {
-  //   const pegandoId = await this.clienteRepo.findAll();
-  //   return pegandoId.filter(r => r._id == id);
-  // }
+  async pegandoIdMongo(id: string) {
+    const pegandoId = await this.clienteRepo.findAll();
+    return pegandoId.filter(r => r._id == id);
+  }
 }
