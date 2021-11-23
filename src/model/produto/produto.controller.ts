@@ -26,14 +26,14 @@ export class ProdutoController {
 
   @Get(':codigoDoProduto')
   async buscarPorId(
-    @Param('codigoProduto') codigoProduto: number,
+    @Param('codigoProduto') codigoProduto: string,
   ): Promise<Produto> {
     return this.produtoService.searchBySku(codigoProduto);
   }
 
   @Put(':codigoProduto')
   async atualizar(
-    @Param('codigoProduto') codigoProduto: number,
+    @Param('codigoProduto') codigoProduto: string,
     @Body() produto: Produto,
   ): Promise<Produto> {
     return this.produtoService.update(codigoProduto, produto);
@@ -41,7 +41,7 @@ export class ProdutoController {
 
   @Delete(':codigoProduto')
   async remover(
-    @Param('codigoProduto') codigoProduto: number,
+    @Param('codigoProduto') codigoProduto: string,
   ): Promise<Produto> {
     return this.produtoService.delete(codigoProduto);
   }

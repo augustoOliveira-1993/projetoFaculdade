@@ -18,15 +18,15 @@ export class ProdutoRepository {
     return createdUser.save();
   }
 
-  async findAtMongo(codigoProduto: number): Promise<Produto> {
+  async findAtMongo(codigoProduto: string): Promise<Produto> {
     return await this.produtoModel.findOne({ codigoProduto }).exec();
   }
 
-  async delete(codigoProduto: number): Promise<Produto> {
+  async delete(codigoProduto: string): Promise<Produto> {
     return await this.produtoModel.findOneAndDelete({ codigoProduto });
   }
 
-  async update(codigoProduto: number, produto: any): Promise<Produto> {
+  async update(codigoProduto: string, produto: any): Promise<Produto> {
     return await this.produtoModel.findOneAndUpdate(
       { codigoProduto: codigoProduto },
       produto,

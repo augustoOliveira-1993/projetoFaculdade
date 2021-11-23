@@ -3,7 +3,6 @@ import { RestauranteRepository } from './repositories/restaurante.mongo';
 
 @Injectable()
 export class RestauranteService {
-
   constructor(private readonly restauranteRepo: RestauranteRepository) {}
 
   async searchBySku(cnpj: string) {
@@ -23,8 +22,8 @@ export class RestauranteService {
     return await this.restauranteRepo.delete(cnpj);
   }
 
-  async update(cnpj: string, produto: any) {
-    return await this.restauranteRepo.update(cnpj, produto);
+  async update(cnpj: string, restaurante: any) {
+    return await this.restauranteRepo.update(cnpj, restaurante);
   }
 
   async pegandoIdMongo(id: string) {

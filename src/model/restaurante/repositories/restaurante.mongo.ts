@@ -29,7 +29,7 @@ export class RestauranteRepository {
 
   async update(cnpj: string, restaurante: any): Promise<Restaurante> {
     return await this.restauranteModel.findOneAndUpdate(
-      { codigoProduto: cnpj },
+      { cnpj: cnpj },
       restaurante,
       { new: true },
     );

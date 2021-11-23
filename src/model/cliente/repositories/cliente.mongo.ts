@@ -21,6 +21,10 @@ export class ClienteRepository {
     return await this.clienteModel.findOne({ cpf }).exec();
   }
 
+  async findAtMongoEmail(email: string): Promise<Cliente> {
+    return await this.clienteModel.findOne({ email }).exec();
+  }
+
   async delete(cpf: string): Promise<Cliente> {
     return await this.clienteModel.findOneAndDelete({ cpf });
   }

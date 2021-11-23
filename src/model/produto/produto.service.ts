@@ -2,11 +2,13 @@ import { Injectable } from '@nestjs/common';
 // import { Produto } from './interfaces/produto.interface';
 import { ProdutoRepository } from './repositories/produto.mongo';
 
+import { v4 as uuidv4 } from 'uuid';
+
 @Injectable()
 export class ProdutoService {
   constructor(private readonly produtoRepo: ProdutoRepository) {}
 
-  async searchBySku(codigoProduto: number) {
+  async searchBySku(codigoProduto: string) {
     // this.pegandoIdMongo(id);
     return await this.produtoRepo.findAtMongo(codigoProduto);
   }
@@ -16,14 +18,15 @@ export class ProdutoService {
   }
 
   async create(createDB: any) {
+    createDB.codigoProduto = uuidv4();
     return await this.produtoRepo.create(createDB);
   }
 
-  async delete(codigoProduto: number) {
+  async delete(codigoProduto: string) {
     return await this.produtoRepo.delete(codigoProduto);
   }
 
-  async update(codigoProduto: number, produto: any) {
+  async update(codigoProduto: string, produto: any) {
     return await this.produtoRepo.update(codigoProduto, produto);
   }
 

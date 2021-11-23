@@ -5,6 +5,7 @@ const ClienteSchema = new Schema(
     cpf: { type: String, index: true },
     nome: { type: String },
     email: { type: String },
+    senha: { type: String },
     telefone: { type: String },
   },
   {

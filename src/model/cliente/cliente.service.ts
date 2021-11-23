@@ -8,6 +8,9 @@ export class ClienteService {
   async search() {
     return await this.clienteRepo.findAll();
   }
+  async searchByCpf(cpf: string) {
+    return await this.clienteRepo.findAtMongo(cpf);
+  }
 
   async create(createDB: any) {
     return await this.clienteRepo.create(createDB);

@@ -24,13 +24,6 @@ export class ClienteController {
     return this.clienteService.create(cliente);
   }
 
-  // @Get(':codigoDoProduto')
-  // async buscarPorId(
-  //   @Param('codigoDoProduto') codigoDoProduto: string,
-  // ): Promise<Cliente> {
-  //   return this.produtoService.searchBySku(codigoDoProduto);
-  // }
-
   @Put(':cpf')
   async atualizar(
     @Param('cpf') cpf: string,
